@@ -12,10 +12,16 @@ export default function Page() {
     ]
   );
 
+  const addTask = (task) => {
+    if (task && !tasks.includes(task)) {
+      setTasks([...tasks, task]);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <ToDoList tasks={tasks}/>
-      <ToDoForm/>
+      <ToDoForm addTask={addTask}/>
     </View>
   );
 }
